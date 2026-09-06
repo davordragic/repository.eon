@@ -10,7 +10,7 @@ A personal Kodi add-on repository, served via GitHub Pages at:
 |---|---|
 | `pvr.eon` | EON.tv PVR client (live TV, EPG, replay/catchup) |
 | [`skin.eon`](skin.eon) | EON skin -- a minimal, PVR-first interface built to pair with it |
-| [`script.eon.keymap`](script.eon.keymap) | EON Remote Keys -- Up brings up the player OSD instead of skipping ten minutes |
+| [`script.eon.keymap`](script.eon.keymap) | EON Remote Keys -- Down brings up the player OSD instead of skipping ten minutes |
 
 `pvr.eon` is a binary add-on, so it is published once per platform, each in its
 own folder: **Android armv7** in [`pvr.eon+android-armv7`](pvr.eon+android-armv7),
@@ -85,14 +85,14 @@ Android TV), not on this machine.
    It fixes what Up and Down do while something is playing. Kodi binds them
    to a ten minute skip on a programme opened from the guide -- on a TV remote,
    the two easiest buttons to hit by accident -- and to channel up/down on
-   live TV. With this on, **Up brings up the player OSD whatever is playing
+   live TV. With this on, **Down brings up the player OSD whatever is playing
    and neither key seeks**; the OSD itself is untouched, so once it is open
    Up/Down/Left/Right move around inside it and Back closes it. The cost is
    zapping with Up and Down on live TV -- use the OSD's channel button or the
    channel list instead.
 
    It is on by default; the toggle is Add-ons → My add-ons → Services →
-   **EON Remote Keys** → **Configure** → **"Up brings up the player OSD"**.
+   **EON Remote Keys** → **Configure** → **"Down brings up the player OSD"**.
    Switching it off removes the keymap again. Either way the change applies
    immediately -- the add-on reloads the keymap in place, no Kodi restart.
 

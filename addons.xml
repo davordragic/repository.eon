@@ -22,7 +22,7 @@
       <description lang="hr_HR">Repozitorij za dodatak EON PVR klijent i presvlaku EON.</description>
     </extension>
   </addon>
-  <addon id="script.eon.keymap" name="EON Remote Keys" version="1.1.0" provider-name="Davor Dragic">
+  <addon id="script.eon.keymap" name="EON Remote Keys" version="1.2.0" provider-name="Davor Dragic">
     <requires>
       <import addon="xbmc.python" version="3.0.0" />
     </requires>
@@ -30,10 +30,10 @@
     <extension point="xbmc.addon.metadata">
       <platform>all</platform>
       <license>GPL-2.0-or-later</license>
-      <summary lang="en_GB">Up brings up the player OSD instead of skipping ten minutes</summary>
+      <summary lang="en_GB">Down brings up the player OSD instead of skipping ten minutes</summary>
       <description lang="en_GB">Kodi gives Up and Down two different jobs depending on what is playing. On a programme opened from the guide they skip ten minutes, which on a TV remote are the two easiest buttons to press by accident. On live TV they are channel up and channel down.
 
-This add-on gives them one meaning everywhere: Up brings up the player OSD, and neither key seeks.
+This add-on gives them one meaning everywhere: Down brings up the player OSD, and neither key seeks.
 
 The OSD itself is left exactly as it is. Once it is open, Up, Down, Left and Right move around inside it and Back puts it away, all as usual.
 
