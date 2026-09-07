@@ -1,3 +1,10 @@
+[B]2.2.6[/B]
+• The player controls no longer print "Left / right to seek" on top of the behind-live readout. Both labels are centred on the same line under the timeline, and the hint only checked that no seek was in progress, so on a rewound live stream the two strings were drawn over each other and neither could be read. The readout wins that spot now: the hint appears when the timeline has focus and there is nothing behind-live to report, which is the same rule the infobar already used for its "LIVE" label. That rule is one expression both windows share, so the slot cannot end up with two owners again
+
+[B]2.2.5[/B]
+• "Other / Unknown" is gone from the rest of the skin too, not just the player infobar: the programme line in the channel list, the guide, the programme information dialog and PVR search all drop it the same way, and keep whatever else that line was carrying - the separator in front of it goes with it rather than being left dangling
+• The guide no longer ends the selected show's details with a "Next" line that had nothing to do with it. That line is the channel's next programme counted from right now, which is the right answer beside a channel but not beside a show: picking one that ended at 20:00 still read "Next 20:45". The description now uses that space instead, so more of it fits before it runs out of room. Beside a channel, in the home panel and the channel list, the line stays exactly as it was
+
 [B]2.2.4[/B]
 • "Other / Unknown" no longer sits under the title of a programme. Kodi has no state for "the provider sent no genre" - a tag without genre ids is still reported back as that placeholder - and this backend sends none, so it appeared on every programme while saying nothing. The line now falls through to the year, or disappears if there is nothing else to put there, and a real genre still shows the moment one arrives
 

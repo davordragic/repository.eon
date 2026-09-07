@@ -45,7 +45,7 @@ The keymap is written into your profile and reloaded in place, so it applies wit
       </assets>
     </extension>
   </addon>
-  <addon id="skin.eon" version="2.2.5" name="EON PVR Skin" provider-name="Davor Dragic">
+  <addon id="skin.eon" version="2.2.6" name="EON PVR Skin" provider-name="Davor Dragic">
     <requires>
       <import addon="xbmc.gui" version="5.17.0" />
     </requires>
