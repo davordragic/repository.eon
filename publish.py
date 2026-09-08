@@ -88,6 +88,15 @@ def locate_script_eon_keymap(args):
     return location
 
 
+def locate_script_eon_defaults(args):
+    """Unlike the keymap and the skin, this one's source lives inside this
+    repository rather than in a sibling checkout -- the same arrangement the
+    repository add-on itself uses. It is small enough that a checkout of its
+    own would be more ceremony than it earns; move it out and only this
+    function changes."""
+    return REPO_ROOT / "script.eon.defaults"
+
+
 def locate_skin_eon(args):
     """The skin's source tree, which sits next to this repository rather than
     inside it -- the same arrangement pvr.eon's source has. Note the name
@@ -134,6 +143,13 @@ ADDONS = [
     # ButtonTranslator.cpp). This add-on exists to carry one into the profile,
     # which is the only route a repository has to a device's key bindings.
     Addon(id="script.eon.keymap", keep=2, locate=locate_script_eon_keymap,
+          ignore=(".git", ".gitignore", ".DS_Store", "__pycache__", "*.pyc",
+                  "*.zip", "*.zip.md5", "index.html")),
+    # Sets Kodi's own guide settings, which neither a skin nor a binary PVR
+    # client can reach: the add-on API only exposes an add-on's own settings,
+    # and skins have no builtin for a system setting. Imported by skin.eon so
+    # installing the skin brings it along.
+    Addon(id="script.eon.defaults", keep=2, locate=locate_script_eon_defaults,
           ignore=(".git", ".gitignore", ".DS_Store", "__pycache__", "*.pyc",
                   "*.zip", "*.zip.md5", "index.html")),
     Addon(id="skin.eon", keep=2, locate=locate_skin_eon,

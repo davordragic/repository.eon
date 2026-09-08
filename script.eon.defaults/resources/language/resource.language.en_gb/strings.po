@@ -1,0 +1,24 @@
+# EON Guide Defaults language file
+msgid ""
+msgstr ""
+"Project-Id-Version: script.eon.defaults\n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "#30000"
+msgid "General"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Apply the recommended guide settings"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Sets seven days of guide history, three days ahead, and a guide refresh every 48 hours. Applied once, the first time this runs. Change any of them in Kodi afterwards and your choice is left alone. Switch this off and on again to put the recommended values back."
+msgstr ""
+
+msgctxt "#30003"
+msgid "Recommended settings have been applied"
+msgstr ""

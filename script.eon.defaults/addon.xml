@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="script.eon.defaults"
+    name="EON Guide Defaults"
+    version="1.0.0"
+    provider-name="Davor Dragic">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.service" library="service.py"/>
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <license>GPL-2.0-or-later</license>
+    <summary lang="en_GB">Starts Kodi's programme guide settings at the values EON works best with</summary>
+    <description lang="en_GB">Kodi's own defaults do not suit a service like EON. It keeps one day of guide history, so the 7 day replay archive cannot be reached, and it re-reads the whole guide from the provider once the stored copy is two hours old, which on a set-top box means a wait on almost every cold start even though the guide is already on the device.
+
+This add-on sets three of Kodi's settings once, the first time it runs: seven days of guide history, three days ahead, and a guide refresh every 48 hours.
+
+It is a starting value, not a lock. Change any of them in Kodi afterwards and this add-on leaves your choice alone -- it never writes them a second time. If you do want the recommended values back, switch its setting off and on again.</description>
+    <assets>
+      <icon>icon.png</icon>
+    </assets>
+  </extension>
+</addon>

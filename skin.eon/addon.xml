@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="skin.eon"
-  version="2.2.6"
+  version="2.2.7"
   name="EON PVR Skin"
   provider-name="Davor Dragic">
   <requires>
     <import addon="xbmc.gui" version="5.17.0"/>
+    <!-- Neither of these can travel inside the skin. A keymap is only read
+         from system/keymaps and the two profile directories, and a system
+         setting can only be written through JSON-RPC, which a skin has no
+         builtin for. Both therefore ship as service add-ons, and importing
+         them here is what gets them onto a device: installing the skin pulls
+         them in rather than leaving them to be found by hand. -->
+    <import addon="script.eon.keymap" version="1.2.0"/>
+    <import addon="script.eon.defaults" version="1.0.0"/>
   </requires>
   <extension point="xbmc.gui.skin" debugging="false">
     <res width="1920" height="1080" aspect="16:9" default="true" folder="xml"/>
