@@ -1,3 +1,10 @@
+[B]2.2.8[/B]
+• The player controls' information button works. It was written as a bare "Info", the way Kodi's own skin writes it, and that action never arrives: it is handed to the window manager, where the player controls are the topmost modal dialog and Kodi's video OSD only answers to the button that closes it, so the action is dropped there and never reaches full screen video, which is what opens the dialog. The button now closes the controls and opens the programme information dialog by name, the same way the channel and guide buttons beside it already worked
+• The guide behind the player controls shows each programme's own picture instead of the same placeholder on every row. A programme's picture does not arrive as thumbnail artwork - Kodi files it as the item's icon - so the row only ever found the placeholder. The channel's logo stands in where a programme has no picture of its own, and the placeholder is still there for the case where there is neither
+
+[B]2.2.7[/B]
+• Installing the skin now brings the two EON helper add-ons with it: EON Remote Keys, which gives the remote's Up and Down one meaning everywhere, and EON Guide Defaults, which starts Kodi's guide settings at seven days of history, three days ahead and a refresh every 48 hours. Neither can live inside the skin - Kodi only reads keymaps from the profile, and only a service add-on can write a system setting - so until now they had to be found and installed by hand on every device
+
 [B]2.2.6[/B]
 • The player controls no longer print "Left / right to seek" on top of the behind-live readout. Both labels are centred on the same line under the timeline, and the hint only checked that no seek was in progress, so on a rewound live stream the two strings were drawn over each other and neither could be read. The readout wins that spot now: the hint appears when the timeline has focus and there is nothing behind-live to report, which is the same rule the infobar already used for its "LIVE" label. That rule is one expression both windows share, so the slot cannot end up with two owners again
 

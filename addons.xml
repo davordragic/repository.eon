@@ -64,7 +64,7 @@ It is a starting value, not a lock. Change any of them in Kodi afterwards and th
       </assets>
     </extension>
   </addon>
-  <addon id="skin.eon" version="2.2.7" name="EON PVR Skin" provider-name="Davor Dragic">
+  <addon id="skin.eon" version="2.2.8" name="EON PVR Skin" provider-name="Davor Dragic">
     <requires>
       <import addon="xbmc.gui" version="5.17.0" />
       <import addon="script.eon.keymap" version="1.2.0" />
