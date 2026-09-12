@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon
   id="pvr.eon"
-  version="21.8.9"
+  version="21.8.10"
   name="EON PVR Client"
   provider-name="Nirvana">
   <requires>
@@ -15,7 +15,7 @@
     <import addon="inputstream.adaptive" minversion="21.0.0"/>
     <import addon="script.module.inputstreamhelper" version="0.5.8"/>
   </requires>
-  <extension point="kodi.pvrclient" library_osx="pvr.eon.21.8.9.dylib"/>
+  <extension point="kodi.pvrclient" library_osx="pvr.eon.21.8.10.dylib"/>
   <extension point="xbmc.addon.metadata">
     <platform>osx-arm64</platform>
     <license>GPL-2.0-or-later</license>

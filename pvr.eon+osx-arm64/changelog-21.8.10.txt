@@ -1,3 +1,34 @@
+v21.8.10
+  - The programme guide loads much faster on a TV box. Measured on the Android
+    box, a full refresh spent about 85% of its time not fetching anything:
+    Kodi asks for the guide one channel at a time and does its own work on each
+    answer, and it was being handed all ten days -- roughly 93,000 programmes
+    -- every single time. Kodi never drops a programme because the add-on
+    stopped sending it, so once it has been given the history the refresh now
+    carries only the last day of it plus the future, which is about 60% less
+    for both sides to do. The whole window is still delivered on the first
+    refresh, after the channel line-up changes, when more past days are put on
+    display, and again once the history Kodi was given would have aged out of
+    the guide on its own
+  - The first channels of a refresh no longer wait on a batch of fifteen. Kodi
+    walks the guide faster than full-size requests come back, and the first two
+    channels it asked for were costing it 5.7 and 5.1 seconds of waiting; the
+    prefetch now starts with small requests and grows them
+  - Reading an age rating no longer throws an exception per programme, and HTTP
+    responses are no longer reassembled as C strings, one strlen() per 16KB
+
+v21.8.9
+  - The programme guide loads about four times faster. Kodi asks for the guide
+    one channel at a time and waits for each answer, so a full refresh was one
+    HTTP round trip per channel -- 289 of them on a Telemach line-up. The
+    backend answers a request for up to 15 channels at once, so the first
+    channels of a refresh now start a background prefetch that pulls the whole
+    guide in batches of 15 across four threads, and every channel is then
+    answered from memory. Measured on macOS over a ten day window, a full
+    refresh went from 20 seconds and 289 requests to 5 seconds and 20. It
+    transfers the same amount of data either way -- the saving is the round
+    trips, not the bytes
+
 v21.8.8
   - A programme played from the guide now shows its own length. It was being
     presented with the timeline live TV gets -- from the programme's start
