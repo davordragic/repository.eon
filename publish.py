@@ -60,6 +60,12 @@ class Addon:
     # Kodi is fine with that -- it filters on <platform> while parsing
     # addons.xml, so a device only ever sees the one entry that fits it.
     variants_only: bool = False
+    # Platforms this add-on no longer builds new versions for. What is already
+    # published stays published -- the last build goes on being catalogued and
+    # a device that has it keeps working -- but handing publish.py a *new*
+    # build for one of these is refused, so the platform cannot creep back in
+    # by being rebuilt out of habit.
+    frozen: tuple = ()
 
 
 def version_key(v):
@@ -132,7 +138,15 @@ ADDONS = [
     # silently privileged -- it alone would resolve through Kodi's default
     # <id>/<id>-<version>.zip URL -- and reading the catalog would not show
     # which one it was.
-    Addon(id="pvr.eon", keep=2, variants=True, variants_only=True),
+    # android-aarch64 is frozen at 21.8.11, the last version built for it. The
+    # only Android device this repository serves is a TCL MT5896 TV, whose BSP
+    # is 32-bit only -- it exposes no 64-bit ABI to apps at all, so it loads the
+    # armv7 build and an arm64 one could not be installed on it even
+    # deliberately. Building it meant a second multi-gigabyte Docker image with
+    # its own NDK for a zip nothing here could use. What is published stays
+    # published, in case some other arm64 device ever wants it.
+    Addon(id="pvr.eon", keep=2, variants=True, variants_only=True,
+          frozen=("android-aarch64",)),
     # The skin is built from its own source tree beside this repository (see
     # locate_skin_eon); skin.eon/ here holds only what gets published. tools/ is
     # developer scripts, not part of the add-on.
@@ -339,6 +353,12 @@ def ingest_variant_zips(paths):
         if not platform:
             sys.exit(f"{source.name} declares no <platform> -- a platform variant "
                      f"needs one so Kodi can tell the builds apart")
+        addon = next((a for a in ADDONS if a.id == root.get("id")), None)
+        if addon and platform in addon.frozen:
+            sys.exit(f"{source.name} is a {platform} build, and {addon.id} no longer "
+                     f"builds new versions for that platform -- refusing to ingest "
+                     f"it. What is already published for {platform} stays; drop it "
+                     f"from `frozen` in ADDONS if the platform is coming back.")
         SOURCE_DIR.mkdir(exist_ok=True)
         archived = SOURCE_DIR / f"{root.get('id')}+{platform}-{root.get('version')}.zip"
         if archived.resolve() != source:

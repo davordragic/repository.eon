@@ -193,6 +193,17 @@ python3 publish.py --variant-zip ~/pvr.eon+osx-arm64-21.8.5.zip
 python3 publish.py --variant-zip ~/pvr.eon+android-armv7-21.8.5.zip
 ```
 
+A platform can also be **frozen**: no new versions are built for it, but what
+was published for it stays published and keeps being catalogued, so a device
+that has it goes on working. `android-aarch64` is frozen at 21.8.11 -- the only
+Android device this repository serves is a TCL MT5896 TV whose BSP is 32-bit
+only, so it loads the armv7 build and could not install an arm64 one even
+deliberately, and building that variant meant a second multi-gigabyte Docker
+image with its own NDK for a zip nothing here could use. Frozen platforms are
+listed in `frozen` on the add-on's `ADDONS` entry; handing `publish.py` a new
+build for one is refused before anything is written, so it cannot creep back in
+by being rebuilt out of habit.
+
 Every platform gets its own `pvr.eon+<platform>/` folder holding
 `pvr.eon-<version>.zip` and a copy of the metadata files, plus its own `<addon>`
 entry in `addons.xml` carrying the **same id and version** as the others. That
