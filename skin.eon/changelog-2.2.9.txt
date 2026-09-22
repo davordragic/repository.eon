@@ -1,3 +1,10 @@
+[B]2.2.9[/B]
+• The channel list shows the picture of the programme on now in its preview, instead of the channel's logo, whenever nothing is playing. As soon as something is playing the preview goes back to being the running picture, exactly as before, so coming back to the list from a channel looks the way it always did. A channel's row carries the channel as its item, so its own artwork is the logo and the broadcast picture has to be read off the programme on now; where a programme has none, the logo stands in as it used to
+
+[B]2.2.8[/B]
+• The player controls' information button works. It was written as a bare "Info", the way Kodi's own skin writes it, and that action never arrives: it is handed to the window manager, where the player controls are the topmost modal dialog and Kodi's video OSD only answers to the button that closes it, so the action is dropped there and never reaches full screen video, which is what opens the dialog. The button now closes the controls and opens the programme information dialog by name, the same way the channel and guide buttons beside it already worked
+• The guide behind the player controls shows each programme's own picture instead of the same placeholder on every row. A programme's picture does not arrive as thumbnail artwork - Kodi files it as the item's icon - so the row only ever found the placeholder. The channel's logo stands in where a programme has no picture of its own, and the placeholder is still there for the case where there is neither
+
 [B]2.2.7[/B]
 • Installing the skin now brings the two EON helper add-ons with it: EON Remote Keys, which gives the remote's Up and Down one meaning everywhere, and EON Guide Defaults, which starts Kodi's guide settings at seven days of history, three days ahead and a refresh every 48 hours. Neither can live inside the skin - Kodi only reads keymaps from the profile, and only a service add-on can write a system setting - so until now they had to be found and installed by hand on every device
 
